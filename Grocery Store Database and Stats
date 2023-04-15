@@ -1,0 +1,28 @@
+--Create grocery store database 
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, aisle TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO store VALUES (1, "Diapers", 4, 14.98,24);
+INSERT INTO store VAlUES (2, "Flavored Water", 2, 4.34, 15);
+INSERT INTO store VALUES (3, "Overnight Diapers",4 ,4.98,30); 
+INSERT INTO store VALUES (4, "BBQ Chips",5,1.98,30);
+INSERT INTO store VALUES (5, "Popcorn Chicken", 9, 7.47, 23);
+INSERT INTO store VALUES (6, "Strawberries", 7, 5.65, 35);
+INSERT INTO store VALUES (7, "Texas Toast", 1, 2.72,6);
+INSERT INTO store VALUES (8, "Frozen Pizza", 9, 4.99,10);
+INSERT INTO store VALUES (9, "Oranges", 7, 5.49, 21);
+INSERT INTO store VALUES (10, "Bacon", 3, 4.24,17);
+INSERT INTO store VALUES (11, "Pretzels",5,2.34,43);
+INSERT INTO store VALUES (12, "Wheat Bread",1, 3.23, 19);
+INSERT INTO store VALUES (13, "Sausage", 3, 4.98,10);
+INSERT INTO store VALUES (14, "Popcorn",5, 1.75, 27);
+Insert INTO store VALUES (15, "Deodorant", 10,5.98, 12);
+
+--Display the database oreder by price 
+SELECT * FROM store ORDER BY price;
+
+-- Total number of items in store?
+SELECT SUM (quantity) FROM store;
+
+--Items greater than $5, list by quantity 
+SELECT * FROM store WHERE price >5.00 ORDER BY quantity;
