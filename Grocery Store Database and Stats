@@ -1,6 +1,6 @@
 --Create grocery store database 
 
-CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, aisle TEXT, price INTEGER, quantity INTEGER);
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, aisle INTEGER, price INTEGER, quantity INTEGER);
 
 INSERT INTO store VALUES (1, "Diapers", 4, 14.98,24);
 INSERT INTO store VAlUES (2, "Flavored Water", 2, 4.34, 15);
