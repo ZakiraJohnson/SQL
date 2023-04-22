@@ -1,0 +1,56 @@
+CREATE TABLE celebrity (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,age INTEGER, Birthplace TEXT, spouse_id INTEGER); 
+CREATE TABLE profession (id INTEGER PRIMARY KEY AUTOINCREMENT, celebrity_id INTEGER, profession TEXT); 
+CREATE TABLE couples (id INTEGER PRIMARY KEY AUTOINCREMENT, celebrity1_id INTEGER, celebrity2_id INTEGER); 
+
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Beyonce", 41, "Texas",7);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Hailey Baldwin", 26, "Arizona",8); 
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Joe Jonas", 33, "Arizona",9);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Justin Timberlake", 42, "Tennessee",10);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("David Beckham", 49, "UK",11);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Nick Jonas", 30, "Texas",12);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Jayz", 53, "NewYork",1);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Justin Bieber", 29, "Canada",2);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Sophie Turner", 27, "UK",3);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Jessica Biel", 41, "Minnesota",4);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Victoria Beckham", 51, "UK",5);
+INSERT INTO celebrity (name, age, birthplace,spouse_id) VALUES ("Priyanka Chopra", 40, "India",6);
+
+INSERT INTO profession (celebrity_id, profession) VALUES (1, "singer");
+INSERT INTO profession (celebrity_id, profession) VALUES (2, "actor");
+INSERT INTO profession (celebrity_id, profession) VALUES (3, "singer");
+INSERT INTO profession (celebrity_id, profession) VALUES (4, "singer");
+INSERT INTO profession (celebrity_id, profession) VALUES (5, "athlete");
+INSERT INTO profession (celebrity_id, profession) VALUES (6, "singer");
+INSERT INTO profession (celebrity_id, profession) VALUES (7, "rapper");
+INSERT INTO profession (celebrity_id, profession) VALUES (8, "singer");
+INSERT INTO profession (celebrity_id, profession) VALUES (9, "actor");
+INSERT INTO profession (celebrity_id, profession) VALUES (10, "actor");
+INSERT INTO profession (celebrity_id, profession) VALUES (11, "singer");
+INSERT INTO profession (celebrity_id, profession) VALUES (12, "actor");
+
+INSERT INTO couples (celebrity1_id, celebrity2_id) VALUES (1,7); 
+INSERT INTO couples (celebrity1_id, celebrity2_id) VALUES (2,8);
+INSERT INTO couples (celebrity1_id, celebrity2_id) VALUES (3,9);
+INSERT INTO couples (celebrity1_id, celebrity2_id) VALUES (4,10);
+INSERT INTO couples (celebrity1_id, celebrity2_id) VALUES (5,11);
+INSERT INTO couples (celebrity1_id, celebrity2_id) VALUES (6,12);
+
+--Celebrity and their profession?
+SELECT celebrity.name, profession.profession
+FROM celebrity
+JOIN profession
+ON celebrity.id=profession.celebrity_id; 
+
+--Celebrity next to their spouses age? 
+SELECT celebrity.name, spouse.age
+FROM celebrity 
+JOIN celebrity as spouse 
+ON celebrity.spouse_id = spouse.id;
+
+--Celebirty with their spouse? 
+SELECT a.name,b.name
+FROM couples  
+JOIN celebrity as a  
+ON celebrity1_id=a.id
+JOIN celebrity as b 
+ON celebrity2_id=b.id;
