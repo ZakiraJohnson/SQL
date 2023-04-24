@@ -55,3 +55,27 @@ ON FEB.orderid=cust.order_id
 WHERE Feb.Quantity>2
 AND length(orderid) = 6 
 AND orderid <> 'Order ID'
+
+#8.How many products were sold on 02/18/19?
+SELECT sum(quantity)
+FROM BIT_DB.FebSales 
+WHERE orderdate like '02/18/19%'
+
+#9. List the type of batteries sold in February.
+SELECT distinct product
+FROM BIT_DB.FebSales 
+WHERE product like '%Batteries%'
+
+#10 List products sold in February containing $.99 in price.
+SELECT distinct Product, Price
+FROM BIT_DB.FebSales 
+WHERE Price like '%.99'
+
+#11. List all products sold in Los Angeles in February and include how many of each were sold.
+SELECT distinct Product
+,sum(quantity)
+FROM BIT_DB.FebSales 
+WHERE location like '%.Los Angeles'
+Group BY product
+
+
